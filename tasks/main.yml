@@ -1,2 +1,7 @@
 ---
 # tasks file for devopscloudrucamp
+- name: Create user
+  ansible.builtin.user:
+    name: cloudru
+    # cloudpass
+    password: $6$pTcZaTARf7w$MhguEE41Q6fglwjuu6.QS7ZsauP73EMW7xeo.aiXdPulZAKApPBt.Hrp5SbFI5E6nNT4/a3Ku2p73BJSwHaol.

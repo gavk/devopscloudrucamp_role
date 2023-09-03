@@ -1,6 +1,15 @@
 ---
 - name: Converge
   hosts: all
+  gather_facts: no
+  pre_tasks:
+    - name: Install python
+      raw: "{{ item }}"
+      loop:
+        - apt-get update
+        - apt-get install -y python3
+        - if ![ -f /usr/bin/python ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi
+
   tasks:
     - name: "Include gavk.devopscloudrucamp"
       ansible.builtin.include_role:
